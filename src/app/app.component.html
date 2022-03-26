@@ -1,0 +1,34 @@
+<h1>Tarefa: To-do list com localStorage</h1>
+
+<hr />
+
+<h2>Listar Tarefas</h2>
+<form>
+  <label class="col-sm-2 col-form-label">Tarefa: </label>
+  <input
+    type="text"
+    class="form-control"
+    id="autoSizingInputGroup"
+    placeholder="Digite o nome da tarefa"
+    #nome
+  />
+</form>
+
+<br />
+
+<button id="add"
+(click)="tarefas.adicionarTarefa(nome.value);
+  nome.value = '';
+"
+>Inserir</button>
+
+<h3>Lista de Tarefas</h3>
+
+<ul>
+  <li *ngFor="let item of this.tarefas.getTarefas(); index as i">
+  {{ item.nome }} <button id="close" (click)="this.tarefas.removerTarefa(i)">Concluída</button>
+  </li>
+</ul>
+
+
+
